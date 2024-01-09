@@ -14,7 +14,7 @@ dill==0.3.6
 distlib==0.3.6
 filelock==3.12.2
 flatbuffers==23.1.21
-fonttools==4.38.0
+fonttools==4.43.0
 fsspec==2023.6.0
 gast==0.4.0
 google-auth==2.15.0
