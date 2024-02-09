@@ -1,5 +1,4 @@
 import os
-import random
 
 import numpy as np
 import torch
@@ -7,6 +6,7 @@ import torch.utils.data.distributed
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
+import secrets
 
 
 def _is_pil_image(img):
@@ -92,8 +92,8 @@ class DataLoadPreprocess(Dataset):
         assert img.shape[1] >= width
         assert img.shape[0] == depth.shape[0]
         assert img.shape[1] == depth.shape[1]
-        x = random.randint(0, img.shape[1] - width)
-        y = random.randint(0, img.shape[0] - height)
+        x = secrets.SystemRandom().randint(0, img.shape[1] - width)
+        y = secrets.SystemRandom().randint(0, img.shape[0] - height)
         img = img[y : y + height, x : x + width, :]
         depth = depth[y : y + height, x : x + width, :]
         return img, depth
